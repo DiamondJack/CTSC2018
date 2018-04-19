@@ -1,0 +1,6 @@
+folder: contest
+name: name_for_programers
+short title: {zh-cn: CTSC 2018}
+subdir: [day0,day1,day2]
+title: {zh-cn: IOI 2018 中国国家队选拔赛暨精英赛}
+version: 2
