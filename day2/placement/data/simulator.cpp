@@ -13,6 +13,8 @@ char *argv[4];
 
 int n,m,k,en,r[maxn][maxn],t[maxn][maxn],w[maxn],in[maxn];
 
+bool running[maxn];
+
 struct edge
 {
 	int e;
@@ -43,7 +45,7 @@ priority_queue<rec> q[maxn],event;
 void work()
 {
 	n = inf.readInt(1,1000);
-	m = inf.readInt(1,n*n);
+	m = inf.readInt(0,n*(n-1)/2);
 	k = inf.readInt(1,1000);
 	int op = inf.readInt(1,2);
 	for (int a=1;a<=m;a++)
@@ -56,10 +58,10 @@ void work()
 	}
 	for (int a=1;a<=n;a++)
 		for (int b=1;b<=k;b++)
-			t[a][b] = inf.readInt(1,100000);
+			t[a][b] = inf.readInt(0,100000);
 	for (int a=1;a<=n;a++)
 		for (int b=1;b<=k;b++)
-			r[a][b] = inf.readInt(1,100000);
+			r[a][b] = inf.readInt(0,100000);
 
 	for (int a=1;a<=n;a++)
 		w[a] = ouf.readInt(1,k);
@@ -75,6 +77,7 @@ void work()
 	for (int a=1;a<=k;a++)
 		if (q[a].size() > 0)
 		{
+			running[a] = true;
 			rec top = q[a].top();
 			q[a].pop();
 			event.push(rec(t[top.p][a],top.p<<1));
@@ -92,7 +95,10 @@ void work()
 		if (op == 0)
 		{
 			for (edge *e=v[id];e;e=e->next)
+			{
 				event.push(rec(nowt+r[w[id]][w[e->e]],e->e<<1|1));
+				totalt += r[w[id]][w[e->e]];
+			}
 			solved += 1;
 			if (q[w[id]].size() > 0)
 			{
@@ -100,11 +106,24 @@ void work()
 				q[w[id]].pop();
 				event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
 			}
+			else running[w[id]] = false;
 		}
 		else
 		{
-			totalt += t[id][w[id]];
-			q[w[id]].push(rec(id));
+			in[id]--;
+			if (!in[id])
+			{
+				totalt += t[id][w[id]];
+				q[w[id]].push(rec(id));
+				
+				if (!running[w[id]])
+				{
+					rec top = q[w[id]].top();
+					q[w[id]].pop();
+					event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
+					running[w[id]] = true;
+				}
+			}
 		}
 	}
 	if (solved == n)
@@ -126,10 +145,10 @@ int main(int argcs,char *argvs[])
 	}
 	for (int a=0;a<4;a++)
 		argv[a]=new char[100];
-	sprintf(argv[0],"checker.exe");
-	sprintf(argvs[1],"%s",argvs[1]);
-	sprintf(argvs[2],"%s",argvs[2]);
-	sprintf(argvs[3],"%s",argvs[3]);
+	sprintf(argv[0],"%s",argvs[0]);
+	sprintf(argv[1],"%s",argvs[1]);
+	sprintf(argv[2],"%s",argvs[2]);
+	sprintf(argv[3],"%s",argvs[2]);
 	registerTestlibCmd(argc, argv);
 	work();
 
