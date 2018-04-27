@@ -35,7 +35,6 @@
 
 ## {{ _('Subtasks') }}
 
-{{ tbl('data') }}
 
-对于所有测试数据，$1 \le T \le 100$，$1 \le N \le 50000$，$ T \times N \le 10^6$,  $1 \le L_{i,j} \le j$。 
+对于所有测试数据，$1 \le T \le 100$，$1 \le N \le 50000$，$T \times N \le 10^6$,  $1 \le L_{i,j} \le j$。 
 
