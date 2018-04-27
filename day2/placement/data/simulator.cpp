@@ -59,9 +59,10 @@ void work()
 	for (int a=1;a<=n;a++)
 		for (int b=1;b<=k;b++)
 			t[a][b] = inf.readInt(0,100000);
-	for (int a=1;a<=n;a++)
+	for (int a=1;a<=k;a++)
 		for (int b=1;b<=k;b++)
-			r[a][b] = inf.readInt(0,100000);
+			if (a==b) r[a][b] = inf.readInt(0,0);
+			else r[a][b] = inf.readInt(0,100000);
 
 	for (int a=1;a<=n;a++)
 		w[a] = ouf.readInt(1,k);
@@ -115,7 +116,7 @@ void work()
 			{
 				totalt += t[id][w[id]];
 				q[w[id]].push(rec(id));
-				
+
 				if (!running[w[id]])
 				{
 					rec top = q[w[id]].top();
@@ -128,6 +129,9 @@ void work()
 	}
 	if (solved == n)
 	{
+		FILE *f = fopen("res.txt","w");
+		fprintf(f,"%d\n",totalt);
+		fclose(f);
 		quitf(_ok,"Outputs ok and at least 1 score you get with task 1 value %d and task 2 value %d",totalt,maxt);
 	}
 	else
