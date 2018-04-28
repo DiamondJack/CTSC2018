@@ -1,3 +1,5 @@
+#pragma GCC diagnostic error "-std=c++11"
+#pragma GCC optimize("-O2")
 #include <bits/stdc++.h>
 namespace __banban_hao_ke_ai__ {
 
@@ -138,7 +140,7 @@ namespace __banban_hao_ke_ai__ {
 		INF = str(n + 1, '9');
 		val[0] = ',';
 		adj[0].push_back(1);
-		for(int i = 2; i <= n; ++i) {
+		for(int i = 1; i <= n; ++i) {
 			int f = i - 1; std::cin >> f;
 			adj[f].push_back(i);
 		}

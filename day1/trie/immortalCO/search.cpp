@@ -1,3 +1,5 @@
+#pragma GCC diagnostic error "-std=c++11"
+#pragma GCC optimize("-O2")
 #include <bits/stdc++.h>
 namespace __banban_hao_ke_ai__ {
 
@@ -26,7 +28,10 @@ namespace __banban_hao_ke_ai__ {
 	}
 
 	bool dfs_enum(int p) {
-		if(p > n) return pig(1, "0", "");
+		if(p > n) {
+			for(auto x : adj[0]) if(!pig(x, "0", "")) return 0;
+			return 1;
+		}
 		if(val[p] != '?') return dfs_enum(p + 1);
 		val[p] = ','; if(dfs_enum(p + 1)) return 1;
 		for(val[p] = '0'; val[p] <= '9'; ++val[p])
@@ -39,7 +44,7 @@ namespace __banban_hao_ke_ai__ {
 		n = strlen(val + 1);
 		val[0] = ',';
 		adj[0].push_back(1);
-		for(int i = 2; i <= n; ++i) {
+		for(int i = 1; i <= n; ++i) {
 			int f = i; std::cin >> f;
 			adj[f].push_back(i);
 		}

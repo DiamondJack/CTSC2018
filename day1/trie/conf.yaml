@@ -1,6 +1,7 @@
 args: {n: 1000}
-compile: {c: -O2 -std=c14, cpp: -O2 -std=c++14, java: '', pas: -O2, py: ''}
-data: []
+compile: {c: -O2, cpp: -O2, java: '', pas: -O2, py: ''}
+data: 
+- cases: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 folder: problem
 memory limit: 512 MB
 name: trie
@@ -10,5 +11,12 @@ samples: []
 time limit: 1.0
 title: {zh-cn: 踹树}
 type: program
-users: {}
+users:
+  immortalCO:
+    poly:
+      path: immortalCO/poly.cpp
+      expected: {">=": 100}
+    search:
+      path: immortalCO/search.cpp
+      expected: {"<": 100}
 version: 2
