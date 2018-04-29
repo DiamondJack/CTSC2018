@@ -37,7 +37,13 @@ struct rec
 
 bool operator<(const rec &a,const rec &b)
 {
-	return a.v>b.v;
+	if (a.v != b.v) {
+		return a.v>b.v;
+	} else if ((a.p & 1) != (b.p & 1)) {
+		return (a.p & 1) < (b.p & 1);
+	} else {
+		return a.p > b.p;
+	}
 }
 
 priority_queue<rec> q[maxn],event;
@@ -87,45 +93,42 @@ void work()
 	int solved = 0;
 	while (event.size() > 0)
 	{
-		rec top = event.top();
-		event.pop();
-		int id=top.p>>1;
-		int op=top.p&1;
-		int nowt=top.v;
+		int nowt=event.top().v;
 		maxt=max(maxt,nowt);
-		if (op == 0)
+		while (event.size()>0 && event.top().v == nowt)
 		{
-			for (edge *e=v[id];e;e=e->next)
+			rec top = event.top();
+			event.pop();
+			int id=top.p>>1;
+			int op=top.p&1;
+			if (op == 0)
 			{
-				event.push(rec(nowt+r[w[id]][w[e->e]],e->e<<1|1));
-				totalt += r[w[id]][w[e->e]];
-			}
-			solved += 1;
-			if (q[w[id]].size() > 0)
-			{
-				rec top = q[w[id]].top();
-				q[w[id]].pop();
-				event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
-			}
-			else running[w[id]] = false;
-		}
-		else
-		{
-			in[id]--;
-			if (!in[id])
-			{
-				totalt += t[id][w[id]];
-				q[w[id]].push(rec(id));
-
-				if (!running[w[id]])
+				for (edge *e=v[id];e;e=e->next)
 				{
-					rec top = q[w[id]].top();
-					q[w[id]].pop();
-					event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
-					running[w[id]] = true;
+					event.push(rec(nowt+r[w[id]][w[e->e]],e->e<<1|1));
+					totalt += r[w[id]][w[e->e]];
+				}
+				solved += 1;
+				running[w[id]] = false;
+			}
+			else
+			{
+				in[id]--;
+				if (!in[id])
+				{
+					totalt += t[id][w[id]];
+					q[w[id]].push(rec(id));
 				}
 			}
 		}
+		for (int a=1;a<=k;a++)
+			if (!running[a] && q[a].size()>0)
+			{
+				rec now = q[a].top();
+				q[a].pop();
+				event.push(rec(nowt+t[now.p][a],now.p<<1));
+				running[a]=true;
+			}
 	}
 	if (solved == n)
 	{
