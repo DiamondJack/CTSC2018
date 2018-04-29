@@ -32,6 +32,7 @@ int schedule(int* assignment) {
 	static int cnt_deg[maxn], cur[maxn], est[maxn];
 	memset(cnt_deg, 0, sizeof(cnt_deg));
 	memset(cur, 0, sizeof(cur));
+	memset(est, 0, sizeof(est));
 	for (int i = 1; i <= n; ++ i) {
 		if (indeg[i] == 0) {
 			Event e;
@@ -50,22 +51,22 @@ int schedule(int* assignment) {
 		if (e.type == 0) {
 			cur[m] = 0;
 			for (Edge* ed = head[e.tid]; ed; ed = ed->ne) {
-				if (++ cnt_deg[ed->t] == indeg[ed->t]) {
-					Event f;
-					f.tid = ed->t;
-					f.type = 1;
-					f.step = res + r[m][assignment[ed->t]];
-					evq.push(f);
-				}
+				Event f;
+				f.tid = ed->t;
+				f.type = 1;
+				f.step = max(res + r[m][assignment[ed->t]], est[assignment[ed->t]]);
+				evq.push(f);
 			}
-		} else if (cur[m] == 0) {
-			cur[m] = e.tid;
-			e.step = est[m] = res + t[e.tid][m];
-			e.type = 0;
-			evq.push(e);
-		} else {
-			e.step = est[m];
-			evq.push(e);
+		} else if (++ cnt_deg[e.tid] >= indeg[e.tid]) {
+			if (cur[m] == 0) {
+				cur[m] = e.tid;
+				e.step = est[m] = res + t[e.tid][m];
+				e.type = 0;
+				evq.push(e);
+			} else {
+				e.step = est[m];
+				evq.push(e);
+			}
 		}
 	}
 	return res;
