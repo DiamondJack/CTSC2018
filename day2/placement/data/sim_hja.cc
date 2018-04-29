@@ -22,9 +22,10 @@ struct Edge {
 };
 
 const int maxn = 1003;
+const int maxe = 1000003;
 
 int n, m, k, r[maxn][maxn], t[maxn][maxn], indeg[maxn];
-Edge epool[maxn], *ebuf(epool), *head[maxn];
+Edge epool[maxe], *ebuf(epool), *head[maxn];
 
 int schedule(int* assignment) {
 	priority_queue<Event> evq;

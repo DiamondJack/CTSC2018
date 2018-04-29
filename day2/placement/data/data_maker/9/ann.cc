@@ -70,7 +70,7 @@ int schedule(int* assignment) {
 	return res;
 }
 
-int best_res, ass[maxn], new_ass[maxn], val;
+int best_res, ass[maxn], best_ass[maxn], new_ass[maxn], val;
 
 inline double frand() {
 	return (double)rand() / 0x7fffffff;
@@ -79,7 +79,12 @@ inline double frand() {
 void ann() {
 	double lr(.99);
 	for (int i = 1; i <= n; ++ i) {
-		ass[i] = rand() % k + 1;
+		ass[i] = 1;
+		for (int j = 2; j <= k; ++ j) {
+			if (t[i][j] < t[i][ass[i]]) {
+				ass[i] = j;
+			}
+		}
 	}
 	best_res = schedule(ass);
 	for (int i = 0; 1; ++ i, lr *= .99) {
@@ -103,11 +108,13 @@ void ann() {
 					fprintf(ouf, "%d ", new_ass[j]);
 				}
 				fclose(ouf);
+				memcpy(best_ass, new_ass, sizeof(best_ass));
 			}
 			if (new_res < best_res || exp((double)best_res / new_res) * frand() < lr) {
 				memcpy(ass, new_ass, sizeof(ass));
 			}
 		}
+		memcpy(ass, best_ass, sizeof(ass));
 	}
 }
 

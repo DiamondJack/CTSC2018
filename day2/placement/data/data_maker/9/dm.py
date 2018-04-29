@@ -1,6 +1,6 @@
 from random import randint
 
-n, m, k, v1, v2 = 100, 3000, 64, 1000, 30
+n, m, k, v1, v2, v3 = 100, 300, 64, 1000, 300, 800
 
 print('%d %d %d 2' % (n, m + (n - 2) * 2, k))
 for i in range(2, n):
@@ -15,7 +15,7 @@ for i in range(m):
     edges.append((u, v))
     print('%d %d' % (u, v))
 for i in range(n):
-    print(' '.join([ str(randint(1, v1)) for j in range(k) ]))
+    print(' '.join([ str(randint(v1, v1 + v2)) for j in range(k) ]))
 for i in range(k):
-    print(' '.join([ '0' if i == j else str(randint(1, v2)) for j in range(k) ]))
+    print(' '.join([ '0' if i == j else str(randint(1, v3)) for j in range(k) ]))
 
