@@ -119,45 +119,42 @@ int simulate(int *w)
 	int solved = 0;
 	while (event.size() > 0)
 	{
-		rec top = event.top();
-		event.pop();
-		int id=top.p>>1;
-		int op=top.p&1;
-		int nowt=top.v;
+		int nowt=event.top().v;
 		maxt=max(maxt,nowt);
-		if (op == 0)
+		while (event.size()>0 && event.top().v == nowt)
 		{
-			for (edge *e=v[id];e;e=e->next)
+			rec top = event.top();
+			event.pop();
+			int id=top.p>>1;
+			int op=top.p&1;
+			if (op == 0)
 			{
-				event.push(rec(nowt+r[w[id]][w[e->e]],e->e<<1|1));
-				totalt += r[w[id]][w[e->e]];
-			}
-			solved += 1;
-			if (q[w[id]].size() > 0)
-			{
-				rec top = q[w[id]].top();
-				q[w[id]].pop();
-				event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
-			}
-			else running[w[id]] = false;
-		}
-		else
-		{
-			in[id]--;
-			if (!in[id])
-			{
-				totalt += t[id][w[id]];
-				q[w[id]].push(rec(id));
-
-				if (!running[w[id]])
+				for (edge *e=v[id];e;e=e->next)
 				{
-					rec top = q[w[id]].top();
-					q[w[id]].pop();
-					event.push(rec(nowt+t[top.p][w[id]],top.p<<1));
-					running[w[id]] = true;
+					event.push(rec(nowt+r[w[id]][w[e->e]],e->e<<1|1));
+					totalt += r[w[id]][w[e->e]];
+				}
+				solved += 1;
+				running[w[id]] = false;
+			}
+			else
+			{
+				in[id]--;
+				if (!in[id])
+				{
+					totalt += t[id][w[id]];
+					q[w[id]].push(rec(id));
 				}
 			}
 		}
+		for (int a=1;a<=k;a++)
+			if (!running[a] && q[a].size()>0)
+			{
+				rec now = q[a].top();
+				q[a].pop();
+				event.push(rec(nowt+t[now.p][a],now.p<<1));
+				running[a]=true;
+			}
 	}
 
 	return totalt;
@@ -203,14 +200,14 @@ namespace Fire
 		generate(z);
 		double nowbest=getCost(z),cost=0;
 
-		for (int a=1;a<=10;a++)
+		for (int a=1;a<=15;a++)
 		{
 			double T = calcStartTemp();
 			double T_end = 1e-3;
 			cost = getCost(x);
 			fprintf(stdout,"Process start! Initial Temperature: %.3lf , cost: %.3lf\n", T, cost);
 			while (T > T_end) {
-				for (int i = 0; i < n*10; ++ i) {
+				for (int i = 0; i < n*50; ++ i) {
 					for (int a=1;a<=n;a++)
 						y[a]=x[a];
 					y[rand()%n+1]=rand()%k+1;
