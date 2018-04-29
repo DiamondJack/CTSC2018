@@ -133,7 +133,8 @@ void work()
 	if (solved == n)
 	{
 		FILE *f = fopen("res.txt","w");
-		fprintf(f,"%d\n",totalt);
+		if (op == 1) fprintf(f,"%d\n",totalt);
+		else fprintf(f,"%d\n",maxt);
 		fclose(f);
 		quitf(_ok,"Outputs ok and at least 1 score you get with task 1 value %d and task 2 value %d",totalt,maxt);
 	}

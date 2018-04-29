@@ -104,7 +104,6 @@ def work(inf,ouf):
     if test(res,"test.out") != ans:
         print(ans)
         print(test(res,"test.out"))
-        gg
 
     output(res,ouf)
 
