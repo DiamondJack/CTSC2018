@@ -1,5 +1,5 @@
 args: {n: 1000}
-compile: {c: -O2 -std=c11, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
+compile: {c: '', cpp: '', java: '', pas: -O2, py: ''}
 data: []
 folder: problem
 memory limit: 512 MB
@@ -7,7 +7,7 @@ name: faceless
 partial score: false
 pre: []
 samples: []
-time limit: 1.0
+time limit: 3.0
 title: {zh-cn: 假面}
 type: program
 users: {}
