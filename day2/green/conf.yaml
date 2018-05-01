@@ -13,6 +13,10 @@ time limit: 1.0
 title: {zh-cn: 青蕈领主}
 type: program
 users:
+  lvx:
+    bf.cpp:
+      expected: []
+      path: lvx/bf.cpp
   yjq:
     brute.cpp:
       expected: []

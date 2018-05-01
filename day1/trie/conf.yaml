@@ -14,6 +14,12 @@ title: {zh-cn: 踹树}
 type: program
 users:
   immortalCO:
+    mkr.cpp:
+      expected: []
+      path: immortalCO/mkr.cpp
+    mkr.py:
+      expected: []
+      path: immortalCO/mkr.py
     poly:
       expected: {'>=': 100}
       path: immortalCO/poly.cpp
