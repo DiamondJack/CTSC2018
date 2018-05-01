@@ -17,9 +17,6 @@ users:
     bf:
       expected: {<: 100}
       path: immortalCO/bf.cpp
-    mkr.py:
-      expected: []
-      path: immortalCO/mkr.py
     tmp:
       expected: {'>=': 100}
       path: immortalCO/tmp.cpp
