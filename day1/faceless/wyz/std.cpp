@@ -40,7 +40,7 @@ void attack(){
 	int id=read();
 	int u=read(),v=read(),p=1LL*u*inv(v)%P;
 	for (int j=0;j<=m[id];++j)
-		f[id][j]=(1LL*f[id][j+1]*p+1LL*f[id][j]*(1-p+P))%P;
+		f[id][j]=(1LL*f[id][j+1]*p+1LL*f[id][j]*(j>0?1-p+P:1))%P;
 }
 
 int id[N];

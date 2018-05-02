@@ -32,7 +32,7 @@ void gen(int n,int Q,int C,int type){
 	printf("%d\n",n);
 	for (int i=1;i<=n;++i){
 		int x=percent(3)?maxm:(rand()%(Q<=100?5:maxm)+1);
-		if (type==2) x=1;
+		if (type&2) x=1;
 		printf("%d",x);
 		if (i==n) puts("");
 		else putchar(' ');
@@ -44,8 +44,8 @@ void gen(int n,int Q,int C,int type){
 	for (int i=1;i<=Q;++i){
 		if (op[i]==0){
 			int id=rand()%n+1;
-			if (type!=1) v=randULL()%(P-2)+2,u=randULL()%(v-1)+1;
-			if (type==3) u=v=233;
+			if ((type&1)==0) v=randULL()%(P-2)+2,u=randULL()%(v-1)+1;
+			if (type&4) u=v=233;
 			printf("%d %d %d %d\n",0,id,u,v);
 		}
 		if (op[i]==1){
