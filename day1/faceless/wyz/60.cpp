@@ -49,7 +49,7 @@ int dp[N];
 void trans(int k,int p){
 	// printf("[debug] %d\n",p);
 	for (int j=0;j<=k;++j)
-		dp[j]=(1LL*dp[j+1]*p+1LL*dp[j]*(1-p+P))%P;
+		if (dp[j+1]||dp[j]) dp[j]=(1LL*dp[j+1]*p+1LL*dp[j]*(1-p+P))%P;
 }
 
 void invTrans(int k,int p){
