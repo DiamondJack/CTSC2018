@@ -1,4 +1,4 @@
-#pragma GCC diagnostic error "-std=c++11"
+#pragma GCC diagnostic error "-std=c++1"
 #pragma GCC optimize("-O2")
 #include <bits/stdc++.h>
 namespace __banban_hao_ke_ai__ {
