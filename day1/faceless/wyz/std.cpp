@@ -30,9 +30,9 @@ inline int inv(int x){
 	return fast_pow(x,P-2);
 }
 
-const int N=128;
+const int N=205;
 
-int n;
+
 int m[N];
 int f[N][N];
 
@@ -43,6 +43,7 @@ void attack(){
 		f[id][j]=(1LL*f[id][j+1]*p+1LL*f[id][j]*(j>0?1-p+P:1))%P;
 }
 
+int n;
 int id[N];
 int dp[N];
 
@@ -58,6 +59,8 @@ void invTrans(int k,int p){
 		dp[j]=((dp[j]-1LL*dp[j+1]*p)%P+P)*q%P;
 }
 
+int _inv[N];
+
 void pick(){
 	int k=read();
 	memset(dp,0,sizeof(dp));
@@ -69,7 +72,7 @@ void pick(){
 		
 		int ans=0;
 		for (int j=1;j<=k;++j)
-			ans=(ans+1LL*dp[j]*inv(j))%P;
+			ans=(ans+1LL*dp[j]*_inv[j])%P;
 		#ifdef DEBUG
 		putchar('[');
 		for (int j=0;j<=k;++j) printf("%d ",dp[j]);
@@ -91,6 +94,7 @@ int main(){
 	freopen("faceless.out","w",stdout);
 #endif
 	n=read();
+	for (int i=1;i<=n;++i) _inv[i]=inv(i);
 	for (int i=1;i<=n;++i) m[i]=read();
 	memset(f,0,sizeof(f));
 	for (int i=1;i<=n;++i) f[i][m[i]]=1;

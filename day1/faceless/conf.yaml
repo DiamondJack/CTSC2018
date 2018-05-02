@@ -9,10 +9,13 @@ partial score: false
 pre: []
 samples:
 - cases: [1, 2, 3, 4]
-time limit: 3.0
+time limit: 2.0
 title: {zh-cn: 假面}
 type: program
 users:
   wyz:
+    60.cpp:
+      expected: []
+      path: wyz/60.cpp
     std.cpp: {expected: == 100, path: wyz/std.cpp}
 version: 2
