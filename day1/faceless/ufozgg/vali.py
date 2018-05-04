@@ -21,6 +21,7 @@ def check_in_file(in_f):
 	for i in range(n):
 		if m[i]!=1:
 			M1 = False
+		assert(0<m[i] and m[i]<=100)
 	for i in range(Q):
 		L = get_line(in_f,-1)
 		assert(len(L)>0)

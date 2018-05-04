@@ -28,15 +28,16 @@
 {%- do vars.__setitem__('sample_id', 1) -%}
 {{ self.sample_text() }}
 
-{{ self.title_sample_description() }}
-
 {% do vars.__setitem__('sample_id', 2) -%}
+{{ self.sample_file() }}
+
+{% do vars.__setitem__('sample_id', 3) -%}
 {{ self.sample_file() }}
 
 ## {{ _('Subtasks') }}
 
 对于所有的测试数据， $n,m\leq 100000$ ， $1\le d_i,p_i,l_i\le 10^5$，$1\le g_j,L_j\le10^{18}$。
 
-{{ tbl('table', width = [1, 1, 1]) }}
+{{ tbl('data', width = [1, 1, 1, 1]) }}
 
 
