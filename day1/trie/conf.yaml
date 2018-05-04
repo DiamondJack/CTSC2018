@@ -10,7 +10,7 @@ pre: []
 samples:
 - cases: [1]
 time limit: 1.0
-title: {zh-cn: 踹树}
+title: {zh-cn: 字典树}
 type: program
 users:
   immortalCO:
