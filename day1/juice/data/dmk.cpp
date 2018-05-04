@@ -30,10 +30,11 @@ int main(int argc,char **argv)
   
   lmax = pmax = 100000;
   n = m = 100000;
-  if (NUM < 3) n = 10, m = 10;
-  else if (NUM < 6) n = m = 500;
-  else if (NUM < 10) pmax = 1;
-  else if (NUM < 15) lmax = 1;
+  if (NUM < 4) n = 10, m = 10;
+  else if (NUM < 7) n = m = 500;
+  else if (NUM < 10) n = m = 5000;
+  else if (NUM < 13) pmax = 1;
+  else if (NUM < 16) lmax = 1;
   printf("%d %d\n",n,m);
   for (int i = 0;i < n;i++) {
     long long d = rand(1,100000),p;

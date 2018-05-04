@@ -1,4 +1,4 @@
-for((i=1;i<=21;++i))
+for((i=1;i<=20;++i))
 do
 	./dmk.exe $i
 	./juice
