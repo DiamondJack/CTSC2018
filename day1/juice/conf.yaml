@@ -11,7 +11,7 @@ samples:
 - cases: [1, 2]
 - cases: [3]
 time limit: 2.0
-title: {zh-cn: 用于试题标题的中文名称}
+title: {zh-cn: 混合果汁}
 type: program
 users:
   ryz:
