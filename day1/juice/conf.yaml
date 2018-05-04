@@ -9,6 +9,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1, 2]
+- cases: [3]
 time limit: 2.0
 title: {zh-cn: 用于试题标题的中文名称}
 type: program
