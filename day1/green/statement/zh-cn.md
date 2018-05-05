@@ -39,10 +39,10 @@
 {%- do vars.__setitem__('sample_id', 1) -%}
 {{ self.sample_text() }}
 
-{%- do vars.__setitem__('sample_id', 2) -%}
+{% do vars.__setitem__('sample_id', 2) -%}
 {{ self.sample_file() }}
 
-{%- do vars.__setitem__('sample_id', 3) -%}
+{% do vars.__setitem__('sample_id', 3) -%}
 {{ self.sample_file() }}
 
 ## {{ _('Subtasks') }}
