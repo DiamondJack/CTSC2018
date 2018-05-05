@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
+#define constexpr inline
 
 using namespace std;
-using ll = long long;
-using pii = pair<int, int>;
+typedef long long ll;
+typedef pii pair<int, int>;
 
 #define rep(i, x, y) for (int i = (x), _ = (y); i < _; ++i)
 #define down(i, x, y) for (int i = (x) - 1, _ = (y); i >= _; --i)
