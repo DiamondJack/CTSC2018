@@ -1,5 +1,5 @@
 from os import *
-if False:
+if True:
 	system("pypy mkr.py N=36 BB=[0,0] PP=[[6],[6]] VL=1 VR=1 NoShuf=True > 1.in");
 	system("pypy mkr.py N=366 BB=[0,0] PP=[[1,2,3,4],[1,2,3,4]] VL=1 VR=1 > 2.in");
 	system("pypy mkr.py N=1388 BB=[0,0] PP=[[1,2,3,4],[1,2,3,4]] VL=0 VR=2017011328 > 3.in");
