@@ -8,7 +8,7 @@ name: wronganswer
 partial score: false
 pre: []
 samples:
-- cases: [1]
+- cases: [1, 2]
 time limit: 3.0
 title: {zh-cn: 暴力写挂}
 type: program
