@@ -20,7 +20,6 @@ def check_in_file(in_f):
 			if L[j] != 1 and j != n-1:
 				LJ1 = False
 			assert(1<=L[j] and L[j]<=j+1)
-	assert(T*n<=1000000)
 	print([T,n,LJ,LJ1])
 
 for i in range(1,21):
