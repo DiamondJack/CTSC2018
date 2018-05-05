@@ -8,7 +8,7 @@ name: trie
 partial score: false
 pre: []
 samples:
-- cases: [1]
+- cases: [1, 2]
 time limit: 1.0
 title: {zh-cn: 字典树}
 type: program
