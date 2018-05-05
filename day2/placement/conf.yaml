@@ -12,6 +12,6 @@ samples:
 - cases: [2]
 time limit: 1.0
 title: {zh-cn: 组合数问题}
-type: program
+type: output
 users: {}
 version: 2

@@ -28,13 +28,18 @@ Access Globe 有若干个**递增**的正整数序列。这些正整数序列中
 {%- do vars.__setitem__('sample_id', 1) -%}
 {{ self.sample_text() }}
 
+
+{% do vars.__setitem__('sample_id', 2) %}
+{{ self.sample_file() }}
+
+
 ## {{ _('Subtasks') }}
 
 对于 $20\%$ 的数据，$n\le 80$，`?` 个数不超过 8；
 
 对于另外 $10\%$ 的数据，$n\le 80, f_i = i - 1$；
 
-对于另外 $15\%$ 的数据，$f_i = i-1$；
+对于另外 $25\%$ 的数据，$f_i = i-1$；
 
 对于另外 $15\%$ 的数据，$n\le 80$；
 
