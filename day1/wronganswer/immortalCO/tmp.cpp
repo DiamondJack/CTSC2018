@@ -6,6 +6,7 @@ namespace __banban_hao_ke_ai__ {
 	using ll = long long;
 	const int MAX_N = 1000010;
 	const ll inf = 1ll << 60;
+	#define constexpr inline
 
 	template<class T> constexpr T dmax(T a, T b) {return a > b ? a : b;}
 	template<class T> inline bool cmax(T &a, T b) {return a < b ? a = b, 1 : 0;}
