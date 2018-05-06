@@ -9,7 +9,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1, 2]
-time limit: 1.0
+time limit: 6.0
 title: {zh-cn: 青蕈领主}
 type: program
 users:
