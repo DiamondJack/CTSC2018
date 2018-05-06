@@ -27,7 +27,7 @@ for i in range(1,21):
 	in_f=open('../data/%d.in'%(i),'r')
 	check_in_file(in_f)
 	in_f.close()
-for i in range(1,3):
+for i in range(1,4):
 	in_f=open('../down/%d.in'%(i),'r')
 	check_in_file(in_f)
 	in_f.close()
