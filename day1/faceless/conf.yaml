@@ -9,7 +9,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1, 2, 3, 4]
-time limit: 7.0
+time limit: 6.0
 title: {zh-cn: 假面}
 type: program
 users:
