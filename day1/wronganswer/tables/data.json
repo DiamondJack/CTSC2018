@@ -1,0 +1,23 @@
+[
+	["测试点编号","$n<=$","$v$","$T$是一条链","$T'$是一条链"],
+	["$1$","$36$","$=1$","否","否"],
+	["$2$","$366$",null,null,null],
+	["$3$","$1388$","$>0$",null,null],
+	["$4$","$1999$",null,null,null],
+	["$5$","$2666$",null,null,null],
+	["$6$","$5666$","无",null,null],
+	["$7$","$8666$",null,null,null],
+	["$8$","$11111$",null,null,null],
+	["$9$","$12345$",null,null,null],
+	["$10$","$366666$","$>0$","是","是"],
+	["$11$",null,"无",null,null],
+	["$12$",null,"$>0$",null,"否"],
+	["$13$",null,null,null,null],
+	["$14$",null,"无",null,null],
+	["$15$",null,"$>0$","否","是"],
+	["$16$",null,null,null,null],
+	["$17$",null,"无",null,null],
+	["$18$",null,null,null,"否"],
+	["$19$",null,null,null,null],
+	["$20$",null,null,null,null]
+]
