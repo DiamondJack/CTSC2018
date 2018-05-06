@@ -14,7 +14,7 @@ typedef pair<int, int> pii;
 #define se second
 //#define LX_JUDGE
 
-const int MAX_N = 2005;
+const int MAX_N = 5005;
 
 namespace MATH_CAL {
 	const int mod = 998244353;
@@ -40,10 +40,10 @@ void Solve(int n) {
 		siz[i] = 1;
 		rep (j, to[i], i + 1) {
 			flag &= to[i] <= to[j];
-			if (!cov[j] && j < i) cov[j] = i, siz[i]++;
+			if (!cov[j] and j < i) cov[j] = i, siz[i]++;
 		}
 	}
-	rep (i, 1, n + 1) flag &= cov[i];
+	rep (i, 1, n) flag &= cov[i];
 	if (!flag) return void(puts("0"));
 	int res = 1;
 	rep (i, 1, n + 1) res = mul(res, f[siz[i]]);
