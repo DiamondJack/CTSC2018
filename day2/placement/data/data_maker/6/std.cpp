@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int maxn=210;
+const int maxn=2010;
 
 int n,m,k,en;
 
