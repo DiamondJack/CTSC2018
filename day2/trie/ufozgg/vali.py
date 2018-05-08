@@ -43,8 +43,10 @@ for i in range(1,21):
 	print("data%d:"%i)
 	in_f=open('../data/%d.in'%(i),'r')
 	check_in_file(in_f)
+	assert(in_f.readline()=='')
 	in_f.close()
 for i in range(1,3):
 	in_f=open('../down/%d.in'%(i),'r')
 	check_in_file(in_f)
+	assert(in_f.readline()=='')
 	in_f.close()

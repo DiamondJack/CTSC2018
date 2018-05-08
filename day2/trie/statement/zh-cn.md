@@ -35,7 +35,7 @@ Access Globe 有若干个**递增**的正整数序列。他把这些正整数序
 
 Tommy 填写的 Trie 如下图，红色的节点为所有叶子节点，注意，根节点在左下方。
 
-{{ img('samp.png', size = 0.5, align = 'middle', inline = False) }}
+{{ img('samp.png', size = 0.45, align = 'middle', inline = False) }}
 
 
 
@@ -47,7 +47,7 @@ Tommy 填写的 Trie 如下图，红色的节点为所有叶子节点，注意�
 
 对于 $20\%$ 的数据 ， $T\le 10$，对于每组数据 $n\le 80$ ， `?` 个数不超过 8；
 
-对于另外 $10\%$ 的数据，$T\le 10$ ， 对于每组数据 $n\le 80, f_i = i - 1$；
+对于另外 $10\%$ 的数据，$T\le 20$ ， 对于每组数据 $n\le 80, f_i = i - 1$；
 
 对于另外 $20\%$ 的数据，$f_i = i-1$；
 
@@ -58,5 +58,3 @@ Tommy 填写的 Trie 如下图，红色的节点为所有叶子节点，注意�
 ## {{_('Hint')}}
 
 `,`的ascii码为 $44$ ，比所有的数字都要小。
-
-\color{white}数据很弱，乱搞请自便。\color{black}
