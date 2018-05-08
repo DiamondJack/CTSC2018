@@ -40,21 +40,24 @@ namespace __banban_hao_ke_ai__ {
 	}
 
 	void __main__() {
-		std::cin >> (val + 1);
-		n = strlen(val + 1);
-		val[0] = ',';
-		adj[0].push_back(1);
-		for(int i = 1; i <= n; ++i) {
-			int f = i; std::cin >> f;
-			adj[f].push_back(i);
+		int t; std::cin >> t;
+		while(t--) {
+			std::cin >> (val + 1);
+			n = strlen(val + 1);
+			val[0] = ',';
+			adj[0].push_back(1);
+			for(int i = 1; i <= n; ++i) {
+				int f = i; std::cin >> f;
+				adj[f].push_back(i);
+			}
+			int n0 = n;
+			for(int i = 1; i <= n; ++i) if(adj[i].empty()) {
+				adj[i].push_back(++n0);
+				val[n0] = ',';
+			}
+			if(dfs_enum(1)) std::cout << str(val + 1, val + n + 1) << std::endl;
+			else puts("failed");
 		}
-		int n0 = n;
-		for(int i = 1; i <= n; ++i) if(adj[i].empty()) {
-			adj[i].push_back(++n0);
-			val[n0] = ',';
-		}
-		if(dfs_enum(1)) std::cout << str(val + 1, val + n + 1) << std::endl;
-		else puts("failed");
 	}
 }
 

@@ -130,7 +130,6 @@ namespace __banban_hao_ke_ai__ {
 			memset(val, 0, sizeof val);
 			std::cin >> (val + 1);
 			n = strlen(val + 1);
-			printf("n = %d\n", n);
 			INF = str(n + 1, '9');
 			for(int i = 0; i <= n + 1; ++i) {f[i].clear(); adj[i].clear();}
 			val[0] = ',';
@@ -154,10 +153,7 @@ namespace __banban_hao_ke_ai__ {
 
 	void __main__() {
 		int T; std::cin >> T;
-		while(T--) {
-			printf("%d\n", T);
-			sol.__main__();
-		}
+		while(T--) sol.__main__();
 	}
 }
 

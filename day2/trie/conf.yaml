@@ -14,9 +14,6 @@ title: {zh-cn: 字典树}
 type: program
 users:
   immortalCO:
-    mkr.cpp:
-      expected: []
-      path: immortalCO/mkr.cpp
     poly:
       expected: {'>=': 100}
       path: immortalCO/poly.cpp
