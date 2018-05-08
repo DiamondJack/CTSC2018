@@ -4,14 +4,16 @@
 namespace __banban_hao_ke_ai__ {
 
 	using str = std::string;
-	const int MAX_N = 310;
+	const int MAX_N = 410;
 	const char C_MAX = 127, C_MIN = 0;
 	const str NONE = "";
 
 	class Solver {
+		int n;
 		char val[MAX_N];
 		std::vector<int> adj[MAX_N];
 		str f[MAX_N];
+		str INF;
 
 		bool cmp(const str& a, const str& b) {
 			return a.length() != b.length() ? a.length() < b.length() : a < b;
@@ -72,9 +74,6 @@ namespace __banban_hao_ke_ai__ {
 			return tmp;
 		}
 
-		int n;
-		str INF;
-
 		str dp_init_inner(int p, str lim) {
 			str ret = "";
 			if(!lim.empty() && !f[p].empty())
@@ -128,9 +127,12 @@ namespace __banban_hao_ke_ai__ {
 			for(auto q : adj[p]) dp_make(q, pre, lim);
 		}
 		public: void __main__() {
+			memset(val, 0, sizeof val);
 			std::cin >> (val + 1);
 			n = strlen(val + 1);
+			printf("n = %d\n", n);
 			INF = str(n + 1, '9');
+			for(int i = 0; i <= n + 1; ++i) {f[i].clear(); adj[i].clear();}
 			val[0] = ',';
 			adj[0].push_back(1);
 			for(int i = 1; i <= n; ++i) {
@@ -148,11 +150,14 @@ namespace __banban_hao_ke_ai__ {
 			dp_make(0, "", "0");
 			std::cout << str(val + 1, val + n + 1) << std::endl;
 		}
-	};
+	}	sol;
 
 	void __main__() {
 		int T; std::cin >> T;
-		while(T--) Solver().__main__();
+		while(T--) {
+			printf("%d\n", T);
+			sol.__main__();
+		}
 	}
 }
 
