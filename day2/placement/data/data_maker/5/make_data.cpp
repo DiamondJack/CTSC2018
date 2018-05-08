@@ -7,7 +7,7 @@ using namespace std;
 
 #define ops "5"
 
-const int maxn=110;
+const int maxn=510;
 
 int n,m,k;
 
@@ -34,7 +34,7 @@ void output()
 
 void make_data()
 {
-	n=100;m=0;k=5;
+	n=500;m=0;k=5;
 	for (int a=1;a<=n;a++)
 		for (int b=a+1;b<=a+5 && b<=n;b++)
 			if (rand()%2)
