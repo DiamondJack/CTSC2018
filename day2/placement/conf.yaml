@@ -9,6 +9,7 @@ pre: []
 samples:
 - cases: [1]
 - cases: [2]
+- cases: [0]
 time limit: 1.0
 title: {zh-cn: 组合数问题}
 type: output
