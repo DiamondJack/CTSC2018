@@ -171,6 +171,7 @@ int main(int argcs,char *argvs[])
 	freopen(argv[5],"w",stdout);
 	printf("%d\n",v);
 	fclose(stdout);
+	quitf(_ok,"");
 
 	return 0;
 }
