@@ -11,11 +11,12 @@ def get_line(in_f,num=1):
 def check_in_file(in_f):
 	T = int(in_f.readline())
 	maxn = 0
-	Qc = 0
+	MaxQc = 0
 	Is = True
 	Maxdep = 0
 	for xx in range(T):
-		print(xx)
+		#print(xx)
+		Qc = 0
 		line = in_f.readline().strip()
 		n=len(line)
 		if n > maxn:
@@ -34,7 +35,9 @@ def check_in_file(in_f):
 				Maxdep = dep[i+1]
 			if fa[i]!=i:
 				Is = False
-	print([T,maxn,Qc,Is,Maxdep])
+		if Qc > MaxQc:
+			MaxQc = Qc
+	print([T,maxn,MaxQc,Is,Maxdep])
 	
 for i in range(1,21):
 	print("data%d:"%i)
