@@ -31,6 +31,14 @@ Access Globe 有若干个**递增**的正整数序列。他把这些正整数序
 {{ self.sample_text() }}
 
 
+{{ self.title_sample_description() }}
+
+Tommy 填写的 Trie 如下图，红色的节点为所有叶子节点。
+
+{{ img('samp.png', size = 0.5, align = 'middle', inline = False) }}
+
+
+
 {% do vars.__setitem__('sample_id', 2) %}
 {{ self.sample_file() }}
 
