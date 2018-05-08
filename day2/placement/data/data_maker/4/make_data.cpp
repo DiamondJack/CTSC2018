@@ -7,7 +7,7 @@ using namespace std;
 
 #define ops "4"
 
-const int maxn=110;
+const int maxn=510;
 
 int n,m,k;
 
@@ -34,13 +34,13 @@ void output()
 
 void make_data()
 {
-	n=99;m=0;k=100;
+	n=399;m=0;k=100;
 	for (int a=1;a<=3;a++)
-		for (int b=1;b<=32;b++)
+		for (int b=1;b<=132;b++)
 		{
 			m++;
-			ed[m][0]=(a-1)*33+b;
-			ed[m][1]=(a-1)*33+b+1;
+			ed[m][0]=(a-1)*133+b;
+			ed[m][1]=(a-1)*133+b+1;
 		}
 	for (int a=1;a<=n;a++)
 		for (int b=1;b<=k;b++)

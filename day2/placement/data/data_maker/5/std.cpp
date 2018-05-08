@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int maxn=110;
+const int maxn=510;
 
 int n,m,k,en;
 
