@@ -9,14 +9,11 @@ partial score: false
 pre: []
 samples:
 - cases: [1, 2]
-time limit: 1.0
+time limit: 3.0
 title: {zh-cn: 字典树}
 type: program
 users:
   immortalCO:
-    mkr.cpp:
-      expected: []
-      path: immortalCO/mkr.cpp
     poly:
       expected: {'>=': 100}
       path: immortalCO/poly.cpp

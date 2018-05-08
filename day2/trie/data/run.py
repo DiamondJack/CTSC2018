@@ -1,29 +1,68 @@
 from os import *
 from sys import *
-system("g++ ../immortalCO/mkr.cpp -o mkr -O2 -std=c++11")
+from random import *
+if False:
+	system("g++ ../immortalCO/mkr.cpp -o mkr -O2 -std=c++11")
 
-system("echo n=50 m=5 | ./mkr > 1.in")
-system("echo n=80 m=8 | ./mkr > 2.in")
-system("echo n=80 m=8 | ./mkr > 3.in")
-system("echo n=80 m=8 | ./mkr > 4.in")
-system("echo n=80 m=-1 chain | ./mkr > 5.in")
-system("echo n=80 m=80 chain | ./mkr > 6.in")
-system("echo n=300 m=-1 chain | ./mkr > 7.in")
-system("echo n=300 m=233 chain | ./mkr > 8.in")
-system("echo n=300 m=10000 chain | ./mkr > 9.in")
-system("echo n=80 m=-1 | ./mkr > 10.in")
-system("echo n=80 m=30 | ./mkr > 11.in")
-system("echo n=80 m=100 | ./mkr > 12.in")
-system("echo n=300 m=-1 | ./mkr > 13.in")
-system("echo n=300 m=30 | ./mkr > 14.in")
-system("echo n=300 m=50 | ./mkr > 15.in")
-system("echo n=300 m=100 | ./mkr > 16.in")
-system("echo n=300 m=450 chain | ./mkr > 17.in")
-system("echo n=300 m=200 | ./mkr > 18.in")
-system("echo n=300 m=10000 chain | ./mkr > 19.in")
-system("echo n=300 m=100000 | ./mkr > 20.in")
+	for i in xrange(1, 5):
+		system("echo 10 > %d.in" % i)
+		for j in xrange(10):
+			system("echo n=80 m=8 | ./mkr >> %d.in" % i)
 
-system("g++ ../immortalCO/poly.cpp -o tmp")
+	for i in xrange(5, 7):
+		system("echo 10 > %d.in" % i)
+		for j in xrange(10):
+			if i == 6:
+				system("echo n=80 m=-1 chain | ./mkr >> %d.in" % i)
+			else:
+				system("echo n=80 m=1000 chain | ./mkr >> %d.in" % i)
+			system("echo n=80 m=200 chain | ./mkr >> %d.in" % i)
+		
+	for i in xrange(7, 11):
+		system("echo 100 > %d.in" % i)
+		for j in xrange(100):
+			C = ""
+			if randint(0, 1) == 0:
+				C = "keep"
+			if i == 9:
+				system("echo n=200 m=233 chain %s | ./mkr  >> %d.in" % (C, i))
+			elif i == 10:
+				system("echo n=200 m=10000 chain %s | ./mkr  >> %d.in" % (C, i))
+			else:
+				system("echo n=200 m=-1 chain %s | ./mkr  >> %d.in" % (C, i))
+
+	for i in xrange(11, 13):
+		system("echo 100 > %d.in" % i)
+		for j in xrange(100):
+			C = ""
+			if randint(0, 1) == 0:
+				C += " keep"
+			if randint(0, 1) == 0:
+				C += " chain"
+			if i == 11:
+				system("echo n=80 m=10000 %s | ./mkr >> %d.in" % (C, i))
+			else:
+				system("echo n=80 m=-1 %s | ./mkr >> %d.in" % (C, i))
+
+	for i in xrange(13, 21):
+		system("echo 100 > %d.in" % i)
+		for j in xrange(100):
+			C = "chain" if randint(0, 1) == 0 else ""
+			if i == 14 or i == 16 or i == 18 or i == 20:
+				C = "chain" if randint(1, 20) != 1 else ""
+			if randint(0, 1) == 0 and i != 17 and i != 18:
+				C += " keep"
+			if i == 13 or i == 14:
+				system("echo n=200 m=-1 %s | ./mkr >> %d.in" % (C, i))
+			elif i == 15 or i == 16:
+				system("echo n=200 m=500 %s | ./mkr >> %d.in" % (C, i))
+			elif i == 17 or i == 18:
+				system("echo n=200 m=100000 %s | ./mkr >> %d.in" % (C, i))
+			else:
+				system("echo n=200 m=%d %s | ./mkr >> %d.in" % (randint(1, 200), C, i))
+
+
+system("g++ ../immortalCO/poly.cpp -o tmp -O2 -std=c++11")
 
 for i in xrange(1, 21):
 	system("/usr/bin/time ./tmp < %d.in > %d.ans" % (i, i))

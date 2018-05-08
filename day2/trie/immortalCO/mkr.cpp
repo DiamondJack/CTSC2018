@@ -136,7 +136,13 @@ int main() {
 	assert(n <= lim);
 	string out;
 	for(int i = 1; i <= n; ++i) out.push_back(rep[i].back());
-	for(int t = ((A<int>("m") == -1) ? randint(1, n) : A<int>("m")); t--; ) out[rand() % out.size()] = '?';
+	for(int t = ((A<int>("m") == -1) ? randint(1, n) : A<int>("m")); t--; ) {
+		int p = rand() % out.size();
+		if(args.count("keep") && out[p] == ',')
+			;
+		else out[p] = '?';
+	}
+	if(args.count("keep")) cerr << "keep" << endl;
 	cout << out << endl;
 	for(int i = 1; i <= n; ++i) cout << fa[i] << " \n"[i == n];
 }
