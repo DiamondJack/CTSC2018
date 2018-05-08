@@ -8,7 +8,7 @@ using namespace std;
 
 #define ops "6"
 
-const int maxn=110;
+const int maxn=1010;
 
 int n,m,k;
 
@@ -35,7 +35,7 @@ void output()
 
 void make_data()
 {
-	n=100;m=900;k=2;
+	n=500;m=4500;k=2;
 	for (int a=1;a<=m;a++)
 	{
 		int s=0,e=0;
@@ -51,10 +51,10 @@ void make_data()
 	}
 	for (int a=1;a<=n;a++)
 		for (int b=1;b<=k;b++)
-			t[a][b]=rand()%50000+50000;
+			t[a][b]=rand()%90000+10000;
 	for (int a=1;a<=k;a++)
 		for (int b=1;b<=k;b++)
-			if (a!=b) r[a][b]=rand()%20+1;
+			if (a!=b) r[a][b]=rand()%10+1;
 }
 
 void run_data()
